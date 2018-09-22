@@ -2,16 +2,18 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag
-      ('application', { media: 'all', 'data-turbolinks-track': 'reload' } )
-    %>
-    <%= javascript_include_tag
-      ('application', { 'data-turbolinks-track': 'reload' } )
-    %>
+    <%= render 'layouts/rails_default' %>
+    <%= render 'layouts/shim' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+      <%= link_to "Home", root_path %>
+      <%= link_to "About", about_path %>
+      <%= link_to "Help", help_path %>
+      <%= link_to "Contact", contact_path %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
